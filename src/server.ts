@@ -1,9 +1,14 @@
 import makeApp from "./app";
+import mongoose from "mongoose";
+
+import { connectDb } from "./db/connect";
 
 const port = 3000;
 
-const app = makeApp();
+const app = makeApp(connectDb);
 
-app.listen(port, () => {
-  [console.log("server running at", port)];
+mongoose.connection.on("connected", () => {
+  app.listen(port, () => {
+    [console.log("server running at", port)];
+  });
 });

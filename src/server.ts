@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import { connectDb } from "./db/connect";
 import { createDummyUserIfNotCreated } from "./utils/createDummyUserIfNotCreated";
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const app = makeApp(connectDb);
 

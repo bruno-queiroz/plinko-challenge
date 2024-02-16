@@ -15,4 +15,10 @@ describe("Test /bet ending point", () => {
 
     expect(res.status).toBe(400)
   })
+
+  it("GET to /bet without rows param should fail", async () => {
+    const res = await request(app).get("/bet?bet=3&risk=high")
+
+    expect(res.status).toBe(400)
+  })
 });

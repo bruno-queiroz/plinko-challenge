@@ -5,7 +5,7 @@ A MongoDB + NodeJS + Typescript APi with a single endpoint.
 
 1. Clone the project
     ```
-    git clone https://github.com/bruno-queiroz/plinko-challenge.git
+    git clone -b dockerized-version --single-branch https://github.com/bruno-queiroz/plinko-challenge.git
     ```
 2. Create an .env file on the root of the project
 3. Copy the environment variables from the .env.example file to the .env file

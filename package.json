@@ -17,7 +17,7 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "tsc && node dist/server.js",
     "build": "tsc",
     "test": "jest",
     "dev": "npx nodemon"

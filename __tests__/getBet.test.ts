@@ -27,4 +27,10 @@ describe("Test /bet ending point", () => {
 
     expect(res.status).toBe(400)
   })
+
+  it("GET to /bet with all params should be successful", async () => {
+    const res = await request(app).get("/bet?bet=3&rows=8&risk=high")
+
+    expect(res.status).toBe(200)
+  })
 });

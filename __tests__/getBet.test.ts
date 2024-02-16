@@ -1,9 +1,20 @@
 import request from "supertest";
 import makeApp from "../src/app";
 
+import { User } from "../src/db/schema";
+
+import { mocked } from "jest-mock";
+import { jest } from "@jest/globals";
+
+jest.mock("../src/db/schema");
+
 const app = makeApp(() => console.log("mock database"));
 
 describe("Test /bet ending point", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("GET to /bet without params should not be successful", async () => {
     const res = await request(app).get("/bet");
 
@@ -29,8 +40,16 @@ describe("Test /bet ending point", () => {
   });
 
   it("GET to /bet with all params should be successful", async () => {
+    const mockedUser = mocked(User).findOne.mockResolvedValue({
+      name: "dummy-user",
+      nonce: 1,
+      serverSeed: "hex",
+      clientSeed: "hex",
+      save: () => console.log("mock save"),
+    });
     const res = await request(app).get("/bet?bet=3&rows=8&risk=high");
 
+    expect(mockedUser.mock.calls).toHaveLength(1);
     expect(res.status).toBe(200);
   });
 

@@ -5,8 +5,9 @@ import { getBet } from "./controllers/getBet";
 
 dotenv.config();
 
-export default function () {
+export default function (connectDb: () => void) {
   const app = express();
+  connectDb();
 
   app.use(express.json());
   app.use(cors());

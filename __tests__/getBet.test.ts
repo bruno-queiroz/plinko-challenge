@@ -33,4 +33,10 @@ describe("Test /bet ending point", () => {
 
     expect(res.status).toBe(200)
   })
+
+  it("GET to /bet with less than 8 rows should fail", async () => {
+    const res = await request(app).get("/bet?bet=3&rows=7&risk=high")
+
+    expect(res.status).toBe(400)
+  })
 });

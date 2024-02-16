@@ -7,22 +7,12 @@ A MongoDB + NodeJS + Typescript APi with a single endpoint.
     ```
     git clone https://github.com/bruno-queiroz/plinko-challenge.git
     ```
-2. Install dependencies
-    ```
-    npm install
-    ```
-3. Create a .env file on the root of the project
-  
-4. Copy the environment variable from the .env.example file to the .env file
-  
-5. Make sure to have MongoDB running locally
-    ```
-    sudo systemctl start mongod
-    ```
-6. Run the app
-    ```
-    npm run dev
-    ```
+2. Create an .env file on the root of the project
+3. Copy the environment variables from the .env.example file to the .env file
+4. Run the project
+```
+sudo docker-compose up
+```
 
 ## Endpoint
 `GET /bet?bet=3&rows=8&risk=low`

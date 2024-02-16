@@ -12,6 +12,10 @@ const userSchema = new Schema({
     type: String,
     default: generateSeed(64),
   },
+  clientSeed: {
+    type: String,
+    default: generateSeed(5),
+  },
 });
 
 export const User = mongoose.model("User", userSchema);

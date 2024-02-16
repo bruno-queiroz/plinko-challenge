@@ -8,7 +8,7 @@ interface GetMultiplier {
   risk: "low" | "medium" | "high";
   serverSeed: string;
   clientSeed: string;
-  nonce: string;
+  nonce: number;
   cursor: number;
   count: number;
 }

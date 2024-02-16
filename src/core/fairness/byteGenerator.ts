@@ -3,7 +3,7 @@ import { createHmac } from "node:crypto";
 export interface ByteGenerator {
   serverSeed: string;
   clientSeed: string;
-  nonce: string;
+  nonce: number;
   cursor: number;
 }
 
